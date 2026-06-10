@@ -10,6 +10,7 @@ import "./globals.css";
 import Link from "next/link";
 import { VaultProvider } from "@/lib/store/vault";
 import { LocalOnlyBadge } from "@/components/ui";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "MemKeeper — own your AI memory",
@@ -70,6 +71,7 @@ export default function RootLayout({
             (MIT) · Your exports never leave this device.
           </footer>
         </VaultProvider>
+      <Analytics />
       </body>
     </html>
   );
