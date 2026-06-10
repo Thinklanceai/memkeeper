@@ -19,6 +19,7 @@ export interface VaultState {
   reports: ImportReport[];
   ready: boolean;
   addImport: (facts: ImportedFact[], report: ImportReport) => Promise<void>;
+  removeFact: (id: string) => Promise<void>;
   clearPlatform: (platform: Platform) => Promise<void>;
   clearAll: () => Promise<void>;
 }
@@ -75,6 +76,13 @@ export function VaultProvider({ children }: { children: React.ReactNode }) {
     await persist([...withoutPlatform, ...newFacts], [...otherReports, report]);
   }
 
+  async function removeFact(id: string): Promise<void> {
+    await persist(
+      facts.filter((f) => f.id !== id),
+      reports,
+    );
+  }
+
   async function clearPlatform(platform: Platform): Promise<void> {
     await persist(
       facts.filter((f) => f.metadata.source !== platform),
@@ -90,7 +98,15 @@ export function VaultProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <VaultContext.Provider
-      value={{ facts, reports, ready, addImport, clearPlatform, clearAll }}
+      value={{
+        facts,
+        reports,
+        ready,
+        addImport,
+        removeFact,
+        clearPlatform,
+        clearAll,
+      }}
     >
       {children}
     </VaultContext.Provider>
