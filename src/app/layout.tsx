@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   description:
     "Import your ChatGPT, Claude and Gemini exports. See what each AI knows about you — parsed entirely in your browser, nothing uploaded.",
   metadataBase: new URL("https://memkeeper.eu"),
+  authors: [{ name: "ThinkLance AI", url: "https://thinklanceai.com" }],
 };
 
 const NAV = [
@@ -61,7 +62,14 @@ export default function RootLayout({
           </header>
           <main className="mx-auto max-w-5xl px-4 py-8">{children}</main>
           <footer className="mx-auto max-w-5xl px-4 pb-8 pt-4 text-xs text-slate">
-            Built in the EU · Engine:{" "}
+            Built in the EU · A{" "}
+            <a
+              href="https://thinklanceai.com"
+              className="underline underline-offset-2 hover:text-ink"
+            >
+              ThinkLance AI
+            </a>{" "}
+            product · Engine:{" "}
             <a
               href="https://github.com/Thinklanceai/agentkeeper"
               className="underline underline-offset-2 hover:text-ink"
