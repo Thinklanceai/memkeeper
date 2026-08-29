@@ -10,14 +10,15 @@ import {
 } from "@/lib/core";
 import { PlatformTag } from "@/components/ui";
 
-const SAMPLE_A = `- My name is Tom and I work as a developer in Brussels
-- Prefers short, direct answers without filler
-- Building a touring platform for electronic music
-- Likes techno and runs a music archive since 1992`;
+const SAMPLE_A = `- Works in marketing for a logistics company in Rotterdam
+- Prefers short answers with no preamble
+- Is planning a move to Lisbon next spring
+- Uses metric units and 24-hour time`;
 
-const SAMPLE_B = `- My name is Tom and I work as a developer in Brussels
-- prefers short direct answers
-- Working on an EU AI Act compliance observatory`;
+const SAMPLE_B = `- Works in marketing for a logistics company in Rotterdam
+- Prefers short answers, no preamble
+- Moved to Lisbon in March
+- Writes in British English`;
 
 const EXPORT_HOWTO: Array<{
   platform: Platform;
